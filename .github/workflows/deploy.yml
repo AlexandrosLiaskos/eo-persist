@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -26,4 +28,6 @@ jobs:
           
       - name: Build and deploy
         run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
           mkdocs gh-deploy --force
