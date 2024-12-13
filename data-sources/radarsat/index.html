@@ -1,0 +1,2522 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guide for using RADARSAT data in EO-PERSIST">
+      
+      
+      
+        <link rel="canonical" href="https://alexandrosliaskos.github.io/eo-persist/data-sources/radarsat/">
+      
+      
+        <link rel="prev" href="../sentinel-1/">
+      
+      
+        <link rel="next" href="../commercial-satellites/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.48">
+    
+    
+      
+        <title>RADARSAT Data - EO Persist Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config",""),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#radarsat-data-integration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="EO Persist Documentation" class="md-header__button md-logo" aria-label="EO Persist Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EO Persist Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              RADARSAT Data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AlexandrosLiaskos/eo-persist" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AlexandrosLiaskos/eo-persist
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fundamentals/" class="md-tabs__link">
+          
+  
+    
+  
+  Fundamentals
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Data Sources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../technical-guides/" class="md-tabs__link">
+          
+  
+    
+  
+  Technical Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../vulnerability-indices/" class="md-tabs__link">
+          
+  
+    
+  
+  Vulnerability Indices
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="EO Persist Documentation" class="md-nav__button md-logo" aria-label="EO Persist Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    EO Persist Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AlexandrosLiaskos/eo-persist" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AlexandrosLiaskos/eo-persist
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../fundamentals/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Fundamentals
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/remote-sensing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Remote Sensing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/permafrost-science/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permafrost Science
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Data Sources
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Data Sources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Optical Satellites
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Optical Satellites
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sentinel-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sentinel-2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../landsat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Landsat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MODIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Radar Satellites
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Radar Satellites
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sentinel-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sentinel-1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    RADARSAT
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    RADARSAT
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#satellite-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Satellite Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Satellite Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radarsat-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      RADARSAT-2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RADARSAT-2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orbit-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orbit Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coverage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radarsat-constellation" class="md-nav__link">
+    <span class="md-ellipsis">
+      RADARSAT Constellation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RADARSAT Constellation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-characteristics_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orbit-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orbit Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coverage_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coverage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imaging-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Imaging Capabilities
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Imaging Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radarsat-2-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      RADARSAT-2 Modes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RADARSAT-2 Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spotlight" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spotlight
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ultra-fine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ultra-Fine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wide-ultra-fine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wide Ultra-Fine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fine
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rcm-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      RCM Modes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RCM Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#very-high-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Very High Resolution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      High Resolution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medium-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Medium Resolution
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arctic-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arctic Monitoring
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arctic Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sea-ice-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sea Ice Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#surface-deformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Surface Deformation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Access
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#official-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Official Sources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Official Sources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#canadian-space-agency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Canadian Space Agency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commercial-distributors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commercial Distributors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-products" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Products
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Products">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#level-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-processing-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-processing Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pre-processing Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radiometric-correction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Radiometric Correction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geometric-correction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geometric Correction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change Detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eo-persist-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      EO-PERSIST Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EO-PERSIST Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processing-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing Chain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis Pipeline
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="References">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scientific-literature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scientific Literature
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commercial-satellites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Commercial Satellites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aerial-photography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aerial Photography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../technical-guides/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Technical Guides
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Technical Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical-guides/arcgis-pro-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ArcGIS Pro Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical-guides/earth-engine-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Earth Engine Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../vulnerability-indices/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Vulnerability Indices
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Vulnerability Indices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vulnerability-indices/climate-vulnerability-index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Climate Vulnerability Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vulnerability-indices/socioeconomic-vulnerability-index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Socioeconomic Vulnerability Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#satellite-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Satellite Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Satellite Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radarsat-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      RADARSAT-2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RADARSAT-2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orbit-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orbit Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coverage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radarsat-constellation" class="md-nav__link">
+    <span class="md-ellipsis">
+      RADARSAT Constellation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RADARSAT Constellation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-characteristics_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orbit-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orbit Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coverage_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coverage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imaging-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Imaging Capabilities
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Imaging Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radarsat-2-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      RADARSAT-2 Modes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RADARSAT-2 Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spotlight" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spotlight
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ultra-fine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ultra-Fine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wide-ultra-fine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wide Ultra-Fine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fine
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rcm-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      RCM Modes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RCM Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#very-high-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Very High Resolution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      High Resolution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medium-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Medium Resolution
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arctic-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arctic Monitoring
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arctic Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sea-ice-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sea Ice Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#surface-deformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Surface Deformation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Access
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#official-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Official Sources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Official Sources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#canadian-space-agency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Canadian Space Agency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commercial-distributors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commercial Distributors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-products" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Products
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Products">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#level-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-processing-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-processing Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pre-processing Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radiometric-correction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Radiometric Correction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geometric-correction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geometric Correction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change Detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eo-persist-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      EO-PERSIST Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EO-PERSIST Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processing-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing Chain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis Pipeline
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="References">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scientific-literature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scientific Literature
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="radarsat-data-integration">RADARSAT Data Integration</h1>
+<h2 id="overview">Overview</h2>
+<p>RADARSAT is a series of Canadian Earth observation satellites that use Synthetic Aperture Radar (SAR) technology. RADARSAT-2 and the RADARSAT Constellation Mission (RCM) provide valuable data for Arctic monitoring, especially during polar nights and through cloud cover.</p>
+<h2 id="satellite-systems">Satellite Systems</h2>
+<h3 id="radarsat-2">RADARSAT-2</h3>
+<h4 id="system-characteristics">System Characteristics</h4>
+<ul>
+<li>Launch: December 14, 2007</li>
+<li>Status: Operational</li>
+<li>Design Life: 7 years (exceeded)</li>
+<li>Mass: 2,200 kg</li>
+</ul>
+<h4 id="orbit-parameters">Orbit Parameters</h4>
+<ul>
+<li>Type: Sun-synchronous</li>
+<li>Altitude: 798 km</li>
+<li>Inclination: 98.6 degrees</li>
+<li>Period: 100.7 minutes</li>
+</ul>
+<h4 id="coverage">Coverage</h4>
+<ul>
+<li>Revisit: 24 days nominal</li>
+<li>Daily Arctic coverage</li>
+<li>Right and left-looking</li>
+</ul>
+<h3 id="radarsat-constellation">RADARSAT Constellation</h3>
+<h4 id="system-characteristics_1">System Characteristics</h4>
+<ul>
+<li>Launch: June 12, 2019</li>
+<li>Status: Operational</li>
+<li>Design Life: 7 years</li>
+<li>Mass: 1,430 kg each</li>
+</ul>
+<h4 id="orbit-parameters_1">Orbit Parameters</h4>
+<ul>
+<li>Type: Sun-synchronous</li>
+<li>Altitude: 592.7 km</li>
+<li>Inclination: 97.74 degrees</li>
+<li>Period: 96.4 minutes</li>
+</ul>
+<h4 id="coverage_1">Coverage</h4>
+<ul>
+<li>4-day repeat cycle</li>
+<li>Sub-daily Arctic coverage</li>
+<li>Enhanced maritime monitoring</li>
+</ul>
+<h2 id="imaging-capabilities">Imaging Capabilities</h2>
+<h3 id="radarsat-2-modes">RADARSAT-2 Modes</h3>
+<h4 id="spotlight">Spotlight</h4>
+<ul>
+<li>Resolution: 1 x 1 m</li>
+<li>Scene size: 18 x 8 km</li>
+<li>Applications:<ul>
+<li>Infrastructure monitoring</li>
+<li>Target detection</li>
+<li>Precise mapping</li>
+</ul>
+</li>
+</ul>
+<h4 id="ultra-fine">Ultra-Fine</h4>
+<ul>
+<li>Resolution: 3 x 3 m</li>
+<li>Scene size: 20 x 20 km</li>
+<li>Applications:<ul>
+<li>Urban monitoring</li>
+<li>Coastal mapping</li>
+<li>Ice classification</li>
+</ul>
+</li>
+</ul>
+<h4 id="wide-ultra-fine">Wide Ultra-Fine</h4>
+<ul>
+<li>Resolution: 3 x 3 m</li>
+<li>Scene size: 50 x 50 km</li>
+<li>Applications:<ul>
+<li>Coastal surveillance</li>
+<li>Ship detection</li>
+<li>Ice monitoring</li>
+</ul>
+</li>
+</ul>
+<h4 id="fine">Fine</h4>
+<ul>
+<li>Resolution: 8 x 8 m</li>
+<li>Scene size: 50 x 50 km</li>
+<li>Applications:<ul>
+<li>Land use mapping</li>
+<li>Change detection</li>
+<li>Resource monitoring</li>
+</ul>
+</li>
+</ul>
+<h3 id="rcm-modes">RCM Modes</h3>
+<h4 id="very-high-resolution">Very High Resolution</h4>
+<ul>
+<li>Resolution: 1 x 3 m</li>
+<li>Scene size: 20 x 20 km</li>
+<li>Applications:<ul>
+<li>Infrastructure monitoring</li>
+<li>Ship detection</li>
+<li>Ice lead mapping</li>
+</ul>
+</li>
+</ul>
+<h4 id="high-resolution">High Resolution</h4>
+<ul>
+<li>Resolution: 3 x 9 m</li>
+<li>Scene size: 50 x 50 km</li>
+<li>Applications:<ul>
+<li>Coastal monitoring</li>
+<li>Sea ice mapping</li>
+<li>Land use change</li>
+</ul>
+</li>
+</ul>
+<h4 id="medium-resolution">Medium Resolution</h4>
+<ul>
+<li>Resolution: 16 x 30 m</li>
+<li>Scene size: 125 x 125 km</li>
+<li>Applications:<ul>
+<li>Wide area monitoring</li>
+<li>Ice extent mapping</li>
+<li>Ocean surveillance</li>
+</ul>
+</li>
+</ul>
+<h2 id="applications">Applications</h2>
+<h3 id="arctic-monitoring">Arctic Monitoring</h3>
+<h4 id="sea-ice-analysis">Sea Ice Analysis</h4>
+<ol>
+<li>Processing Steps</li>
+<li>Calibrate backscatter values</li>
+<li>Classify ice types</li>
+<li>Extract characteristics:<ul>
+<li>Ice concentration</li>
+<li>Ice thickness</li>
+<li>Surface roughness</li>
+</ul>
+</li>
+<li>Quality assessment</li>
+</ol>
+<h4 id="surface-deformation">Surface Deformation</h4>
+<ol>
+<li>InSAR Processing Chain</li>
+<li>Image coregistration</li>
+<li>Interferogram generation</li>
+<li>Phase processing</li>
+<li>Displacement calculation</li>
+<li>Coherence assessment</li>
+</ol>
+<h2 id="data-access">Data Access</h2>
+<h3 id="official-sources">Official Sources</h3>
+<h4 id="canadian-space-agency">Canadian Space Agency</h4>
+<ul>
+<li>Project proposals</li>
+<li>Research agreements</li>
+<li>Commercial licenses</li>
+<li>Training resources</li>
+</ul>
+<h4 id="commercial-distributors">Commercial Distributors</h4>
+<ul>
+<li>MDA Corporation</li>
+<li>Regional providers</li>
+<li>Value-added resellers</li>
+<li>Processing services</li>
+</ul>
+<h3 id="data-products">Data Products</h3>
+<h4 id="level-1">Level 1</h4>
+<ul>
+<li>Single Look Complex</li>
+<li>Ground Range Detected</li>
+<li>Path Image</li>
+<li>Geocoded products</li>
+</ul>
+<h4 id="level-2">Level 2</h4>
+<ul>
+<li>Ocean wind field</li>
+<li>Surface movement</li>
+<li>Ice classification</li>
+<li>Ship detection</li>
+</ul>
+<h2 id="processing">Processing</h2>
+<h3 id="pre-processing-steps">Pre-processing Steps</h3>
+<h4 id="radiometric-correction">Radiometric Correction</h4>
+<ul>
+<li>Antenna pattern</li>
+<li>Range spreading loss</li>
+<li>Incidence angle</li>
+<li>Calibration factors</li>
+</ul>
+<h4 id="geometric-correction">Geometric Correction</h4>
+<ul>
+<li>Orbit state vectors</li>
+<li>Digital elevation model</li>
+<li>Ground control points</li>
+<li>Geoid model</li>
+</ul>
+<h3 id="analysis-methods">Analysis Methods</h3>
+<h4 id="change-detection">Change Detection</h4>
+<ul>
+<li>Amplitude-based</li>
+<li>Coherence-based</li>
+<li>Time series</li>
+<li>Feature tracking</li>
+</ul>
+<h4 id="classification">Classification</h4>
+<ul>
+<li>Supervised learning</li>
+<li>Object-based</li>
+<li>Texture analysis</li>
+<li>Polarimetric</li>
+</ul>
+<h2 id="integration">Integration</h2>
+<h3 id="eo-persist-workflow">EO-PERSIST Workflow</h3>
+<h4 id="data-management">Data Management</h4>
+<ul>
+<li>Acquisition planning</li>
+<li>Storage organization</li>
+<li>Version control</li>
+<li>Quality assurance</li>
+</ul>
+<h4 id="processing-chain">Processing Chain</h4>
+<ul>
+<li>Automated processing</li>
+<li>Quality control</li>
+<li>Product generation</li>
+<li>Archive management</li>
+</ul>
+<h4 id="analysis-pipeline">Analysis Pipeline</h4>
+<ul>
+<li>Standard procedures</li>
+<li>Custom algorithms</li>
+<li>Validation methods</li>
+<li>Result delivery</li>
+</ul>
+<h2 id="references">References</h2>
+<h3 id="documentation">Documentation</h3>
+<ol>
+<li>RADARSAT-2 Product Guide</li>
+<li>RCM Product Description</li>
+<li>SAR Processing Guide</li>
+</ol>
+<h3 id="scientific-literature">Scientific Literature</h3>
+<ol>
+<li>Arctic applications</li>
+<li>Method development</li>
+<li>Validation studies</li>
+</ol>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 13, 2024</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.indexes", "toc.follow", "search.suggest", "search.highlight", "navigation.tabs", "navigation.top", "header.autohide"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
