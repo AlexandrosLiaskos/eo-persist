@@ -1,7 +1,7 @@
 site_name: EO Persist Documentation
-site_url: https://liaskos.github.io/eo-persist/
-repo_url: https://github.com/liaskos/eo-persist
-repo_name: liaskos/eo-persist
+site_url: https://alexandrosliaskos.github.io/eo-persist/
+repo_url: https://github.com/AlexandrosLiaskos/eo-persist
+repo_name: AlexandrosLiaskos/eo-persist
 
 theme:
   name: material
@@ -35,13 +35,10 @@ markdown_extensions:
 
 plugins:
   - search
-  - social
-  - tags
+  - git-revision-date-localized
+  - minify
 
 extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/liaskos/eo-persist
   analytics:
     provider: google
     property: !ENV GOOGLE_ANALYTICS_KEY
