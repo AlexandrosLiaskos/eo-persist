@@ -1,0 +1,76 @@
+site_name: EO Persist Documentation
+site_url: https://liaskos.github.io/eo-persist/
+repo_url: https://github.com/liaskos/eo-persist
+repo_name: liaskos/eo-persist
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: deep purple
+    accent: purple
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - navigation.tabs
+    - navigation.top
+    - header.autohide
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+
+plugins:
+  - search
+  - social
+  - tags
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/liaskos/eo-persist
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+
+docs_dir: docs
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - Fundamentals:
+    - Overview: fundamentals/index.md
+    - Remote Sensing: fundamentals/remote-sensing.md
+    - Permafrost Science: fundamentals/permafrost-science.md
+  - Data Sources:
+    - Overview: data-sources/index.md
+    - Optical Satellites:
+      - Sentinel-2: data-sources/sentinel-2.md
+      - Landsat: data-sources/landsat.md
+      - MODIS: data-sources/modis.md
+    - Radar Satellites:
+      - Sentinel-1: data-sources/sentinel-1.md
+      - RADARSAT: data-sources/radarsat.md
+    - Commercial Satellites: data-sources/commercial-satellites.md
+    - Aerial Photography: data-sources/aerial-photography.md
+  - Technical Guides:
+    - Overview: technical-guides/index.md
+    - ArcGIS Pro Guide: technical-guides/arcgis-pro-guide.md
+    - Earth Engine Guide: technical-guides/earth-engine-guide.md
+  - Vulnerability Indices:
+    - Overview: vulnerability-indices/index.md
+    - Climate Vulnerability Index: vulnerability-indices/climate-vulnerability-index.md
+    - Socioeconomic Vulnerability Index: vulnerability-indices/socioeconomic-vulnerability-index.md
