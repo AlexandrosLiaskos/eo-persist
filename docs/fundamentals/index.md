@@ -1,11 +1,24 @@
-# Fundamentals
+# 🔍 Fundamentals
 
-This section covers the fundamental concepts and principles of Earth Observation and permafrost monitoring.
+Learn the core concepts and principles of Earth Observation and Permafrost Science.
 
-## Topics
+## Core Topics
 
-- [Remote Sensing Basics](remote-sensing.md)
-- [Permafrost Science](permafrost-science.md)
-- [Data Processing](data-processing.md)
-- [GIS Fundamentals](gis-fundamentals.md)
-- [Cloud Computing](cloud-computing.md)
+| Topic | Description | Key Concepts | Documentation |
+|-------|-------------|--------------|---------------|
+| 🛰️ [Remote Sensing](remote-sensing.md) | Earth observation principles and techniques | • Electromagnetic spectrum<br>• Sensor types<br>• Image processing | [Learn More →](remote-sensing.md) |
+| ❄️ [Permafrost Science](permafrost-science.md) | Understanding permafrost dynamics | • Ground ice<br>• Thermal regimes<br>• Active layer | [Learn More →](permafrost-science.md) |
+
+## Quick Start
+1. Review basic concepts
+2. Understand remote sensing principles
+3. Learn about permafrost dynamics
+4. Explore practical applications
+
+## Resources
+* [ESA Earth Observation Portal](https://www.esa.int/Applications/Observing_the_Earth)
+* [NASA Earth Science](https://science.nasa.gov/earth-science)
+* [NSIDC Education Center](https://nsidc.org/learn)
+
+## Prerequisites
+* Basic understanding of geography

@@ -5,254 +5,195 @@ draft: false
 description: "Guide for using RADARSAT data in EO-PERSIST"
 ---
 
-# RADARSAT Data Integration
+# 🛰️ RADARSAT
 
-## Overview
+## Mission Overview
 
-RADARSAT is a series of Canadian Earth observation satellites that use Synthetic Aperture Radar (SAR) technology. RADARSAT-2 and the RADARSAT Constellation Mission (RCM) provide valuable data for Arctic monitoring, especially during polar nights and through cloud cover.
+RADARSAT represents Canada's flagship Earth observation program, utilizing advanced Synthetic Aperture Radar (SAR) technology. The current operational systems include RADARSAT-2 and the RADARSAT Constellation Mission (RCM).
 
-## Satellite Systems
+| Parameter | RADARSAT-2 | RCM (3 Satellites) |
+|-----------|------------|-------------------|
+| Launch Date | Dec 14, 2007 | Jun 12, 2019 |
+| Status | Operational | Operational |
+| Orbit Altitude | 798 km | 592.7 km |
+| Design Life | 7+ years | 7 years |
+| Mass | 2,200 kg | 1,430 kg each |
+| Revisit Time | 24 days | 4 days |
 
-### RADARSAT-2
+Key features:
+- 🌍 All-weather, day/night imaging capability
+- 📡 C-band SAR (5.405 GHz)
+- 🎯 Multiple resolution modes (1m to 100m)
+- 🕒 Sub-daily Arctic coverage
 
-#### System Characteristics
+## Technical Specifications
 
-* Launch: December 14, 2007
-* Status: Operational
-* Design Life: 7 years (exceeded)
-* Mass: 2,200 kg
+### Imaging Modes Overview
 
-#### Orbit Parameters
+```
+Resolution Range Distribution:
+Spotlight:     |█      | 1x1m     - Precise monitoring
+Ultra-Fine:    |██     | 3x3m     - Urban/Coastal
+Fine:          |███    | 8x8m     - Land mapping
+Standard:      |████   | 25x25m   - General purpose
+Wide:          |█████  | 30x30m   - Maritime
+ScanSAR:       |██████ | 100x100m - Ice monitoring
+```
 
-* Type: Sun-synchronous
-* Altitude: 798 km
-* Inclination: 98.6 degrees
-* Period: 100.7 minutes
+### Imaging Modes Details
 
-#### Coverage
+#### RADARSAT-2
 
-* Revisit: 24 days nominal
-* Daily Arctic coverage
-* Right and left-looking
+| Mode | Resolution | Swath Width | Polarization | Applications |
+|------|------------|-------------|--------------|--------------|
+| Spotlight | 1 x 1 m | 18 km | Single, Dual | Infrastructure |
+| Ultra-Fine | 3 x 3 m | 20 km | Single | Urban mapping |
+| Wide Ultra-Fine | 3 x 3 m | 50 km | Single | Coastal zones |
+| Fine | 8 x 8 m | 50 km | Quad-pol | Land use |
+| Standard | 25 x 25 m | 100 km | Quad-pol | General purpose |
+| Wide | 30 x 30 m | 150 km | Single, Dual | Maritime |
+| ScanSAR | 100 x 100 m | 500 km | Single, Dual | Ice coverage |
 
-### RADARSAT Constellation
+#### RADARSAT Constellation Mission (RCM)
 
-#### System Characteristics
+| Mode | Resolution | Swath Width | Polarization | Key Use |
+|------|------------|-------------|--------------|---------|
+| Very High | 1 x 3 m | 20 km | Single | Infrastructure |
+| High | 3 x 9 m | 50 km | Dual | Coastal |
+| Medium | 16 x 30 m | 125 km | Quad | Wide area |
+| Low | 50 x 50 m | 350 km | Compact | Maritime |
+| Very Low | 100 x 100 m | 500 km | Single | Ice extent |
 
-* Launch: June 12, 2019
-* Status: Operational
-* Design Life: 7 years
-* Mass: 1,430 kg each
+## Data Products
 
-#### Orbit Parameters
+### Processing Levels
 
-* Type: Sun-synchronous
-* Altitude: 592.7 km
-* Inclination: 97.74 degrees
-* Period: 96.4 minutes
+```mermaid
+graph TD
+    A[Raw Data] -->|Basic Processing| B[Level 0]
+    B -->|SAR Processing| C[Level 1]
+    C -->|Geolocation| D[Level 1G]
+    D -->|Analysis Ready| E[Level 2]
+    E -->|Value Added| F[Level 3]
+```
 
-#### Coverage
-
-* 4-day repeat cycle
-* Sub-daily Arctic coverage
-* Enhanced maritime monitoring
-
-## Imaging Capabilities
-
-### RADARSAT-2 Modes
-
-#### Spotlight
-
-* Resolution: 1 x 1 m
-* Scene size: 18 x 8 km
-* Applications:
-	+ Infrastructure monitoring
-	+ Target detection
-	+ Precise mapping
-
-#### Ultra-Fine
-
-* Resolution: 3 x 3 m
-* Scene size: 20 x 20 km
-* Applications:
-	+ Urban monitoring
-	+ Coastal mapping
-	+ Ice classification
-
-#### Wide Ultra-Fine
-
-* Resolution: 3 x 3 m
-* Scene size: 50 x 50 km
-* Applications:
-	+ Coastal surveillance
-	+ Ship detection
-	+ Ice monitoring
-
-#### Fine
-
-* Resolution: 8 x 8 m
-* Scene size: 50 x 50 km
-* Applications:
-	+ Land use mapping
-	+ Change detection
-	+ Resource monitoring
-
-### RCM Modes
-
-#### Very High Resolution
-
-* Resolution: 1 x 3 m
-* Scene size: 20 x 20 km
-* Applications:
-	+ Infrastructure monitoring
-	+ Ship detection
-	+ Ice lead mapping
-
-#### High Resolution
-
-* Resolution: 3 x 9 m
-* Scene size: 50 x 50 km
-* Applications:
-	+ Coastal monitoring
-	+ Sea ice mapping
-	+ Land use change
-
-#### Medium Resolution
-
-* Resolution: 16 x 30 m
-* Scene size: 125 x 125 km
-* Applications:
-	+ Wide area monitoring
-	+ Ice extent mapping
-	+ Ocean surveillance
+| Level | Product Type | Description | Common Uses |
+|-------|-------------|-------------|-------------|
+| Level 0 | Raw Data | Compressed raw data | Archive |
+| Level 1 | SLC | Single Look Complex | InSAR |
+| Level 1G | GRD | Ground Range Detected | Analysis |
+| Level 2 | Analysis Ready | Calibrated, geocoded | Applications |
+| Level 3 | Value Added | Derived products | End users |
 
 ## Applications
 
-### Arctic Monitoring
+### 1. Maritime Surveillance
+- 🚢 **Ship Detection**
+  - Automatic identification
+  - Route tracking
+  - Port monitoring
+  - Illegal activity detection
 
-#### Sea Ice Analysis
+### 2. Ice Monitoring
+- ❄️ **Sea Ice Analysis**
+  ```
+  Key Parameters:
+  - Ice concentration
+  - Ice type classification
+  - Lead detection
+  - Ridge mapping
+  - Motion tracking
+  ```
 
-1. Processing Steps
-   - Calibrate backscatter values
-   - Classify ice types
-   - Extract characteristics:
-     * Ice concentration
-     * Ice thickness
-     * Surface roughness
-   - Quality assessment
+### 3. Land Applications
+- 🌍 **Surface Monitoring**
+  - Deformation mapping
+  - Urban change detection
+  - Agricultural monitoring
+  - Forest mapping
 
-#### Surface Deformation
+## Processing Workflow
 
-1. InSAR Processing Chain
-   - Image coregistration
-   - Interferogram generation
-   - Phase processing
-   - Displacement calculation
-   - Coherence assessment
+### SAR Processing Chain
 
-## Data Access
+1. **Pre-processing**
+   ```
+   Processing Steps:
+   1. Radiometric calibration
+   2. Speckle filtering
+   3. Terrain correction
+   4. Geocoding
+   ```
 
-### Official Sources
+2. **Analysis Techniques**
+   - Polarimetric analysis
+   - Interferometric processing
+   - Change detection
+   - Feature extraction
 
-#### Canadian Space Agency
+### Common Analysis Methods
 
-* Project proposals
-* Research agreements
-* Commercial licenses
-* Training resources
+| Technique | Parameters | Applications |
+|-----------|------------|--------------|
+| InSAR | Phase difference | Deformation |
+| PolSAR | Polarimetric | Classification |
+| Backscatter | Intensity | Change detection |
+| Coherence | Phase stability | Feature stability |
 
-#### Commercial Distributors
+## Data Access & Tools
 
-* MDA Corporation
-* Regional providers
-* Value-added resellers
-* Processing services
+### 🔍 Data Sources
 
-### Data Products
+1. **Official Platforms**
+   - [EODMS](https://www.eodms-sgdot.nrcan-rncan.gc.ca/)
+   - [MDA GSI](https://www.maxar.com/products/satellite-access)
+   - [ASF DAAC](https://asf.alaska.edu/)
 
-#### Level 1
+2. **Commercial Access**
+   - MDA Direct
+   - Regional distributors
+   - Value-added providers
 
-* Single Look Complex
-* Ground Range Detected
-* Path Image
-* Geocoded products
+### 🛠️ Processing Software
 
-#### Level 2
+| Tool | Type | Best For | Key Features |
+|------|------|----------|--------------|
+| SNAP | Desktop | General processing | Full SAR toolkit |
+| GAMMA | Commercial | InSAR | Professional |
+| ISCE | Open source | Research | Advanced InSAR |
+| PyRAT | Python | Custom processing | Automation |
 
-* Ocean wind field
-* Surface movement
-* Ice classification
-* Ship detection
+## Best Practices
 
-## Processing
+### Processing Tips
+- 📊 **Quality Control**
+  - Check orbit data quality
+  - Apply precise calibration
+  - Consider environmental conditions
+  - Validate results
 
-### Pre-processing Steps
+### Common Challenges
+```
+Key Considerations:
+1. Speckle noise reduction
+2. Geometric distortions
+3. Atmospheric effects
+4. Temporal decorrelation
+```
 
-#### Radiometric Correction
+## Resources
 
-* Antenna pattern
-* Range spreading loss
-* Incidence angle
-* Calibration factors
+### 📚 Documentation
+- [RADARSAT-2 Product Description](https://www.asc-csa.gc.ca/eng/satellites/radarsat2/)
+- [RCM User Guide](https://www.asc-csa.gc.ca/eng/satellites/radarsat/)
+- [Technical Documentation](https://www.asc-csa.gc.ca/eng/satellites/technical-documents.asp)
 
-#### Geometric Correction
+### 🔧 Tools & Utilities
+- [ASF Tools](https://asf.alaska.edu/data-tools/)
+- [ESA SNAP Toolbox](https://step.esa.int/main/toolboxes/snap/)
+- [Custom Processing Scripts](https://github.com/topics/radarsat)
 
-* Orbit state vectors
-* Digital elevation model
-* Ground control points
-* Geoid model
-
-### Analysis Methods
-
-#### Change Detection
-
-* Amplitude-based
-* Coherence-based
-* Time series
-* Feature tracking
-
-#### Classification
-
-* Supervised learning
-* Object-based
-* Texture analysis
-* Polarimetric
-
-## Integration
-
-### EO-PERSIST Workflow
-
-#### Data Management
-
-* Acquisition planning
-* Storage organization
-* Version control
-* Quality assurance
-
-#### Processing Chain
-
-* Automated processing
-* Quality control
-* Product generation
-* Archive management
-
-#### Analysis Pipeline
-
-* Standard procedures
-* Custom algorithms
-* Validation methods
-* Result delivery
-
-## References
-
-### Documentation
-
-1. RADARSAT-2 Product Guide
+### 📖 References
+1. RADARSAT-2 Product Format Definition
 2. RCM Product Description
-3. SAR Processing Guide
-
-### Scientific Literature
-
-1. Arctic applications
-2. Method development
-3. Validation studies
+3. SAR Processing Handbook

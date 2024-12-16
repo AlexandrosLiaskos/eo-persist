@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        #pdf-viewer {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="pdf-viewer" src=""></iframe>
+    <script>
+        // Get PDF path from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const pdfPath = urlParams.get('pdf');
+        if (pdfPath) {
+            // Remove leading slash if present
+            const cleanPath = pdfPath.startsWith('/') ? pdfPath.substring(1) : pdfPath;
+            document.getElementById('pdf-viewer').src = cleanPath;
+        }
+    </script>
+</body>
+</html>

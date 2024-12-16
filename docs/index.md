@@ -6,6 +6,7 @@
 | 🛰️ [Data Sources](data-sources/) | Source management | • Satellite imagery<br>• Coastal datasets<br>• Integration methods | [Learn More →](data-sources/) |
 | 🛠️ [Technical Guides](technical-guides/) | Implementation guides | • ArcGIS Pro guides<br>• Coastal analysis<br>• Best practices | [Learn More →](technical-guides/) |
 | 🌊 [Vulnerability Indices](vulnerability-indices/) | Risk assessment frameworks | • Coastal Vulnerability Index<br>• Socioeconomic indices (SeVI)<br>• Multi-criteria analysis | [Learn More →](vulnerability-indices/) |
+| 📚 [Scientific Papers](scientific-papers/) | Research publications | • Arctic studies<br>• Climate analysis<br>• EO-PERSIST system | [Learn More →](scientific-papers/) |
 
 ## Site Map
 
@@ -29,9 +30,13 @@
 │   ├── 🔧 ArcGIS Pro Tools
 │   ├── 🌊 ArcGIS Pro Vulnerability Analysis
 │   └── 🛰️ Copernicus Browser Guide
-└── 📂 Vulnerability Indices
-    ├── 🌊 Coastal Vulnerability Index
-    └── 👥 Socioeconomic Vulnerability Index
+├── 📂 Vulnerability Indices
+│   ├── 🌊 Coastal Vulnerability Index
+│   └── 👥 Socioeconomic Vulnerability Index
+└── 📂 Scientific Papers
+    ├── 🧊 Arctic Studies
+    ├── ❄️ Climate Analysis
+    └── 💻 EO-PERSIST System
 ```
 
 ## Quick Links
@@ -40,4 +45,5 @@
 * 📡 [Data Sources](data-sources/index.md)
 * 🛠️ [Technical Guides](technical-guides/index.md)
 * 📊 [Vulnerability Indices](vulnerability-indices/index.md)
+* 📚 [Scientific Papers](scientific-papers/index.md)
 * 🌟 [GitHub Repo](https://github.com/AlexandrosLiaskos/eo-persist)

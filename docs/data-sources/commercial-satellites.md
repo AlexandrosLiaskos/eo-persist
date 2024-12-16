@@ -5,201 +5,193 @@ draft: false
 description: "Guide for using commercial satellite data in EO-PERSIST"
 ---
 
-# Commercial Satellite Data Integration
+# 🛰️ Commercial Satellite Data
 
-## Overview
+## Mission Overview
 
-Commercial satellite data provides high-resolution imagery and specialized data products that complement public satellite missions. This guide covers the integration of major commercial satellite data sources in EO-PERSIST.
+Commercial Earth observation satellites provide high-resolution imagery and specialized data products that complement public satellite missions. These systems offer unique capabilities for detailed monitoring and analysis.
 
-## Satellite Systems
+## Satellite Operators & Systems
 
-### Optical Satellites
+### 🌍 Optical Systems Overview
 
-1. Planet Constellation
-   
-#### SkySat
+```
+Resolution Range Distribution:
+WorldView-3:  |█     | 0.31m - Highest resolution commercial
+GeoEye-1:    |██    | 0.41m - High-precision mapping
+SkySat:      |███   | 0.50m - Daily monitoring
+SuperDove:   |████  | 3-5m  - Wide area coverage
+```
 
-   - Resolution: 0.5m panchromatic
-   - Multispectral: 1.0m
-   - Bands: RGB + NIR
-   - Daily revisit capability
-   - Stereo imaging
-   
-#### SuperDove
+### Major Optical Systems
 
-   - Resolution: 3-5m
-   - 8 spectral bands
-   - Daily imaging capacity
-   - Global coverage
-   - Automated processing
+#### 1. Maxar Technologies
 
-2. Maxar Systems
-   
-#### WorldView-3
+| Satellite | Launch | PAN Resolution | MS Resolution | Bands | Revisit |
+|-----------|--------|----------------|---------------|--------|---------|
+| WorldView-3 | 2014 | 0.31m | 1.24m | 8 VNIR, 8 SWIR | 1 day |
+| WorldView-2 | 2009 | 0.46m | 1.85m | 8 MS | 1.1 days |
+| GeoEye-1 | 2008 | 0.41m | 1.64m | 4 MS | <3 days |
 
-   - Panchromatic: 0.31m
-   - Multispectral: 1.24m
-   - SWIR: 3.7m
-   - CAVIS: 30m
-   - Bands:
-     - 8 VNIR
-     - 8 SWIR
-     - 12 CAVIS
-   
-#### GeoEye-1
+**WorldView-3 Spectral Bands**
+```
+Spectral Coverage:
+VNIR: |████████| (8 bands)  - Surface details
+SWIR: |████████| (8 bands)  - Material properties
+CAVIS:|████████████| (12)   - Atmospheric correction
+```
 
-   - Panchromatic: 0.41m
-   - Multispectral: 1.64m
-   - 4 MS bands
-   - Daily revisit
-   - Stereo capability
+#### 2. Planet Labs
 
-### SAR Systems
+| System | Resolution | Daily Capacity | Spectral Bands | Coverage |
+|--------|------------|----------------|----------------|----------|
+| SkySat | 0.5m PAN, 1.0m MS | ~40 revisits/day | 4 (RGB+NIR) | Targeted |
+| SuperDove | 3-5m | Global | 8 bands | Global |
+| PlanetScope | 3m | Global | 4 (RGB+NIR) | Global |
 
-1. ICEYE Constellation
-   - Resolution: up to 1m
-   - Spotlight mode
-   - Strip mode
-   - Scan mode
-   - Features:
-     - All-weather imaging
-     - Day/night operation
-     - Rapid revisit
-     - Custom tasking
+### 📡 SAR Systems
 
-2. Capella Space
-   - Spotlight: 0.5m
-   - Sliding Spotlight: 1.0m
-   - Strip mode: 2.0m
-   - Features:
-     - 24/7 operations
-     - On-demand tasking
-     - Low latency
-     - Custom processing
+#### Commercial SAR Capabilities
 
-## Applications
+| Provider | Resolution | Modes | Key Features | Applications |
+|----------|------------|-------|--------------|--------------|
+| ICEYE | 1m | Spotlight, Strip | Frequent revisit | Maritime, Ice |
+| Capella | 0.5m | Spotlight | On-demand | Infrastructure |
+| Synspective | 1-3m | Strip, Sliding | Urban monitoring | Infrastructure |
+| XpressSAR | 1m | Multi-mode | Maritime focus | Shipping |
 
-### Infrastructure Monitoring
+## Data Products & Processing Levels
 
-1. Processing Methods
-   - Image preprocessing
-   - Feature detection
-   - Infrastructure mapping
-   - Change analysis
-   - Statistical assessment
+### Processing Chain
+```mermaid
+graph TD
+    A[Raw Data] -->|Basic Processing| B[Level 1A]
+    B -->|Radiometric Correction| C[Level 1B]
+    C -->|Geometric Correction| D[Level 2A]
+    D -->|Atmospheric Correction| E[Level 2B]
+    E -->|Value Added| F[Level 3]
+```
 
-2. Change Detection
-   - Feature extraction
-   - Object detection
-   - Change metrics
-   - Time series analysis
+### Product Types
 
-### Environmental Monitoring
+| Level | Description | Common Uses | Providers |
+|-------|-------------|-------------|-----------|
+| Basic | Radiometrically corrected | Analysis | All |
+| Standard | Geometrically corrected | Mapping | All |
+| Ortho | Orthorectified | GIS integration | Most |
+| Enhanced | Value-added products | Specific applications | Select |
 
-1. Analysis Methods
-   - Multi-temporal processing
-   - Indicator extraction
-   - Classification
-   - Trend analysis
+## Applications & Use Cases
 
-2. Monitoring Tasks
-   - Vegetation health
-   - Water resources
-   - Land use change
-   - Impact assessment
+### 1. Urban Monitoring
+- 🏙️ **Infrastructure Analysis**
+  ```
+  Applications:
+  - Building detection
+  - Change monitoring
+  - Urban growth
+  - Transportation
+  - Utilities mapping
+  ```
 
-## Data Access
+### 2. Environmental Assessment
+- 🌳 **Resource Monitoring**
+  - Forest inventory
+  - Agricultural monitoring
+  - Water resource management
+  - Disaster response
+  - Environmental compliance
 
-### Commercial Providers
+### 3. Maritime Surveillance
+- 🚢 **Ocean Monitoring**
+  - Ship detection
+  - Port activity
+  - Oil spill detection
+  - Ice monitoring
+  - Coastal changes
 
-1. Direct Access
-   - API integration
-   - Portal downloads
-   - Custom ordering
-   - Archive search
+## Data Access & Integration
 
-2. Value-Added Resellers
-   - Processing services
-   - Analytics
-   - Custom solutions
-   - Technical support
+### 🔑 Access Methods
 
-### Licensing Options
+1. **Direct Platforms**
+   - [Maxar SecureWatch](https://www.maxar.com/products/securewatch)
+   - [Planet Explorer](https://www.planet.com/explorer/)
+   - [ICEYE Direct](https://www.iceye.com/direct)
+   - [Capella Console](https://www.capellaspace.com/console/)
 
-1. Standard Licenses
-   - Single user
-   - Organization-wide
-   - Academic use
-   - Research projects
+2. **Cloud Platforms**
+   - [UP42](https://up42.com/)
+   - [SkyWatch](https://www.skywatch.com/)
+   - [Sentinel Hub](https://www.sentinel-hub.com/)
 
-2. Custom Agreements
-   - Multi-year contracts
-   - Volume pricing
-   - Priority tasking
-   - Custom processing
+### 📊 Pricing Models
 
-## Integration
+| Access Type | Description | Best For | Typical Cost Range |
+|-------------|-------------|----------|-------------------|
+| Tasking | New acquisition | Specific needs | $$$$ |
+| Archive | Historical data | Research | $$ |
+| Subscription | Regular access | Monitoring | $$$ |
+| Platform | API access | Integration | $$-$$$$ |
 
-### EO-PERSIST Pipeline
+## Processing Tools & Software
 
-1. Data Management
-   - Order tracking
-   - Download automation
-   - Quality control
-   - Archive management
+### Common Tools
 
-2. Processing Chain
-   - Standard procedures
-   - Custom algorithms
-   - Quality assurance
-   - Product generation
+| Tool | Type | Best For | Key Features |
+|------|------|----------|--------------|
+| ENVI | Commercial | Advanced analysis | Full suite |
+| eCognition | Commercial | Object detection | AI/ML |
+| ERDAS | Commercial | Image processing | Comprehensive |
+| QGIS | Open Source | General analysis | Free |
 
-3. Distribution System
-   - User access control
-   - Product delivery
-   - Usage tracking
-   - Support system
+### API Integration
+```python
+# Example Planet API Usage
+import planet
+client = planet.Client()
 
-## Security
+# Search for imagery
+query = {
+    "filter": {
+        "type": "AndFilter",
+        "config": [
+            {"type": "GeometryFilter", "field_name": "geometry", "config": aoi},
+            {"type": "DateRangeFilter", "field_name": "acquired", "config": {"gte": "2024-01-01T00:00:00Z"}}
+        ]
+    }
+}
+```
 
-### Data Protection
+## Best Practices
 
-1. Access Control
-   - User authentication
-   - Role-based access
-   - Activity logging
-   - Security audits
+### 🎯 Data Selection
+1. **Resolution Requirements**
+   - Match resolution to application
+   - Consider temporal needs
+   - Evaluate spectral requirements
+   - Check atmospheric conditions
 
-2. Storage Security
-   - Encryption
-   - Backup systems
-   - Version control
-   - Data recovery
+2. **Quality Control**
+   - Cloud cover assessment
+   - Geometric accuracy
+   - Radiometric quality
+   - Metadata validation
 
-### Compliance
+## Resources
 
-1. Regulatory Requirements
-   - Export controls
-   - Data privacy
-   - Usage restrictions
-   - Reporting requirements
+### 📚 Documentation
+- [Maxar User Guides](https://www.maxar.com/resources)
+- [Planet Documentation](https://developers.planet.com/docs/)
+- [ICEYE SAR Guide](https://www.iceye.com/sar-data)
+- [Capella User Manual](https://www.capellaspace.com/resources/)
 
-2. Documentation
-   - Usage agreements
-   - Processing logs
-   - Audit trails
-   - Compliance reports
+### 🔧 Tools & SDKs
+- [Planet Python SDK](https://github.com/planetlabs/planet-client-python)
+- [Maxar GBDX Tools](https://github.com/DigitalGlobe/gbdxtools)
+- [Commercial Data APIs](https://github.com/topics/satellite-imagery)
 
-## References
-
-### Provider Documentation
-1. Planet Imagery Guide
-2. Maxar Product Guide
-3. ICEYE User Manual
-4. Capella Documentation
-
-### Technical Resources
-1. API Documentation
-2. Processing Guides
-3. Best Practices
-4. Case Studies
+### 📖 References
+1. Commercial Satellite Imaging Market Report
+2. SAR Data Processing Guidelines
+3. Remote Sensing Best Practices Guide

@@ -5,176 +5,175 @@ draft: false
 description: "Guide for using Landsat data in EO-PERSIST"
 ---
 
-# Landsat Data Integration
+# 🛰️ Landsat
 
-## Overview
+## Mission Overview
 
-Landsat represents NASA's longest-running program for Earth observation satellite imagery, providing continuous data since 1972. For Arctic permafrost monitoring, we primarily utilize Landsat 8 and Landsat 9 data.
+Landsat is NASA's longest-running Earth observation program, providing continuous data since 1972. Currently operational satellites:
 
-## Specifications
+| Satellite | Launch Date | Status | Design Life |
+|-----------|-------------|---------|-------------|
+| Landsat 8 | Feb 11, 2013 | Active | 5+ years |
+| Landsat 9 | Sep 27, 2021 | Active | 5+ years |
 
-### Temporal Characteristics
+Key features:
+- 🌍 50+ years of continuous Earth observation
+- 🕒 8-day combined revisit time (L8 & L9)
+- 📸 185km x 180km scene size
+- 🎯 Multiple resolution bands
 
-1. Revisit Time
-   - 16-day repeat cycle
-   - 8-day combined coverage (L8 & L9)
-   - Seasonal limitations in Arctic
+## Technical Specifications
 
-2. Archive Depth
-   - Landsat 8: 2013-present
-   - Landsat 9: 2021-present
-   - Historical data available
+### Operational Land Imager (OLI-2) and Thermal Infrared Sensor (TIRS-2)
 
-### Spatial Characteristics
+#### Spectral Bands
 
-1. Resolution Classes
-   - Panchromatic: 15m
-   - Multispectral: 30m
-   - Thermal: 100m
+| Band | Name | Wavelength (μm) | Resolution | Purpose |
+|------|------|----------------|------------|----------|
+| B1 | Coastal/Aerosol | 0.433-0.453 | 30m | Coastal studies, aerosols |
+| B2 | Blue | 0.450-0.515 | 30m | Bathymetry, atmosphere |
+| B3 | Green | 0.525-0.600 | 30m | Peak vegetation |
+| B4 | Red | 0.630-0.680 | 30m | Vegetation discrimination |
+| B5 | NIR | 0.845-0.885 | 30m | Biomass content |
+| B6 | SWIR-1 | 1.560-1.660 | 30m | Moisture content |
+| B7 | SWIR-2 | 2.100-2.300 | 30m | Minerals, soil |
+| B8 | Pan | 0.500-0.680 | 15m | Image sharpening |
+| B9 | Cirrus | 1.360-1.390 | 30m | Cloud detection |
+| B10 | TIR-1 | 10.6-11.2 | 100m | Surface temperature |
+| B11 | TIR-2 | 11.5-12.5 | 100m | Surface temperature |
 
-2. Scene Coverage
-   - 185km x 180km scene size
-   - WRS-2 path/row system
-   - Polar orbit optimization
+### Resolution Types
 
-### Spectral Characteristics
+```
+Spatial Resolution Overview:
+15m:  |██████████████| Panchromatic
+30m:  |███████      | Multispectral
+100m: |██          | Thermal
+```
 
-1. Visible and Near-Infrared
-   - Band 1: Coastal/Aerosol (0.433-0.453 µm)
-   - Band 2: Blue (0.450-0.515 µm)
-   - Band 3: Green (0.525-0.600 µm)
-   - Band 4: Red (0.630-0.680 µm)
-   - Band 5: NIR (0.845-0.885 µm)
-
-2. Shortwave Infrared
-   - Band 6: SWIR-1 (1.560-1.660 µm)
-   - Band 7: SWIR-2 (2.100-2.300 µm)
-   - Band 9: Cirrus (1.360-1.390 µm)
-
-3. Thermal Infrared
-   - Band 10: TIR-1 (10.6-11.2 µm)
-   - Band 11: TIR-2 (11.5-12.5 µm)
-
-4. Panchromatic
-   - Band 8: Pan (0.500-0.680 µm)
-
-## Applications
-
-### Surface Temperature Analysis
-
-1. Processing Steps
-   - Convert to Top of Atmosphere (TOA) Radiance
-   - Apply atmospheric correction
-   - Convert to surface temperature
-   - Apply quality control filters
-
-2. Quality Control
-   - Cloud masking
-   - Water masking
-   - QA band filtering
-   - Atmospheric correction
-
-### Land Cover Analysis
-
-1. Vegetation Indices
-   - NDVI (Normalized Difference Vegetation Index)
-   - EVI (Enhanced Vegetation Index)
-   - SAVI (Soil Adjusted Vegetation Index)
-   - NDMI (Normalized Difference Moisture Index)
-
-2. Classification Methods
-   - Supervised classification
-   - Object-based analysis
-   - Time series classification
-   - Change detection
-
-## Data Access
-
-### Primary Sources
-
-1. USGS Earth Explorer
-   - Full archive access
-   - Bulk download tools
-   - Collection 2 products
-   - Processing options
-
-2. Cloud Platforms
-   - Google Earth Engine
-   - AWS Open Data
-   - Microsoft Planetary
+## Data Products
 
 ### Processing Levels
 
-1. Level 1
-   - L1TP: Precision terrain corrected
-   - L1GT: Systematic terrain corrected
-   - L1GS: Systematic corrected
+| Level | Product | Description | Applications |
+|-------|----------|-------------|--------------|
+| L1TP | Precision Terrain | Radiometrically & geometrically corrected | Most applications |
+| L1GT | Systematic Terrain | Systematic geometric corrections | Limited accuracy needs |
+| L2SP | Surface Reflectance | Atmospherically corrected | Advanced analysis |
+| L2ST | Surface Temperature | Calibrated thermal data | Temperature studies |
 
-2. Level 2
-   - Surface reflectance
-   - Surface temperature
-   - Quality assessment
-   - Cloud masks
+### Common Band Combinations
 
-## Processing
+```
+RGB Composites:
+Natural Color:    B4-B3-B2
+False Color IR:   B5-B4-B3
+SWIR:            B7-B6-B4
+Geology:         B7-B4-B2
+```
 
-### Pre-processing Steps
+## Applications
 
-1. Radiometric Correction
-   - DN to radiance
-   - TOA reflectance
-   - Surface reflectance
-   - Atmospheric correction
+### 1. Land Cover Analysis
+- 🌳 **Vegetation Studies**
+    - Forest monitoring
+    - Agricultural mapping
+    - Biomass estimation
+    - Phenology tracking
 
-2. Geometric Correction
-   - Orthorectification
-   - Co-registration
-   - Terrain correction
+### 2. Temperature Monitoring
+- 🌡️ **Surface Temperature**
+    - Urban heat islands
+    - Thermal anomalies
+    - Fire detection
+    - Permafrost studies
 
-### Analysis Methods
+### 3. Change Detection
+- 📊 **Long-term Analysis**
+    - Urban expansion
+    - Deforestation
+    - Coastal changes
+    - Glacier dynamics
 
-1. Time Series Analysis
-   - Trend detection
-   - Seasonal patterns
-   - Change detection
-   - Gap filling
+## Common Indices
 
-2. Spatial Analysis
-   - Regional statistics
-   - Spatial patterns
-   - Feature extraction
-   - Terrain analysis
+### Spectral Indices
 
-## Integration
+| Index | Formula | Application |
+|-------|---------|-------------|
+| NDVI | (B5-B4)/(B5+B4) | Vegetation health |
+| NDWI | (B3-B5)/(B3+B5) | Water bodies |
+| NDBI | (B6-B5)/(B6+B5) | Built-up areas |
+| NBR | (B5-B7)/(B5+B7) | Burn severity |
 
-### EO-PERSIST Workflow
+## Data Access and Processing
 
-1. Data Collection
-   - Scene selection
-   - Quality filtering
-   - Automated downloads
-   - Storage management
+### Data Sources
 
-2. Processing Chain
-   - Standard procedures
-   - Quality checks
-   - Error handling
-   - Documentation
+1. **Official Platforms**
+    - [USGS Earth Explorer](https://earthexplorer.usgs.gov/)
+    - [USGS GloVis](https://glovis.usgs.gov/)
+    - [USGS Machine to Machine API](https://m2m.cr.usgs.gov/)
 
-3. Product Generation
-   - Custom formats
-   - Metadata creation
-   - Validation steps
-   - Distribution methods
+2. **Cloud Platforms**
+    - [Google Earth Engine](https://earthengine.google.com/)
+    - [AWS Open Data](https://registry.opendata.aws/landsat-8/)
+    - [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/)
 
-## References
+### Processing Tools
+
+| Tool | Type | Features | Best For |
+|------|------|----------|-----------|
+| QGIS | Desktop | Full GIS suite | General analysis |
+| SNAP | Desktop | Advanced processing | Scientific analysis |
+| GEE | Cloud | Large-scale processing | Big data analysis |
+| LandSat Package | Python | Automated processing | Custom workflows |
+
+## Processing Workflow
+
+### 1. Pre-processing Steps
+```mermaid
+graph LR
+    A[Raw Data] --> B[Radiometric Correction]
+    B --> C[Atmospheric Correction]
+    C --> D[Pan-sharpening]
+    D --> E[Index Calculation]
+```
+
+### 2. Best Practices
+- ☁️ **Quality Control**
+    - Use QA bands
+    - Check cloud cover
+    - Validate results
+- 🎯 **Processing Tips**
+    - Apply TOA correction
+    - Consider atmospheric effects
+    - Use appropriate resampling
+
+## Historical Archive
+
+### Timeline of Landsat Missions
+
+```
+1972 ────── 1984 ────── 1999 ────── 2013 ────── 2021
+   L1         L5          L7          L8          L9
+```
+
+Key milestones:
+- 1972: First civilian Earth observation satellite
+- 1984: Introduction of TM sensor
+- 1999: Enhanced capabilities with ETM+
+- 2013: OLI and TIRS sensors
+- 2021: Latest generation sensors
+
+## Resources
 
 ### Documentation
-1. Landsat 8-9 User Guide
-2. USGS Data Products
-3. Algorithm Documentation
+- [Landsat Science](https://landsat.gsfc.nasa.gov/)
+- [USGS Landsat Missions](https://www.usgs.gov/landsat-missions)
+- [Landsat Collection 2](https://www.usgs.gov/landsat-missions/landsat-collection-2)
 
-### Scientific Literature
-1. Validation studies
-2. Arctic applications
-3. Method developments
+### Scientific References
+1. Landsat 8-9 Data Users Handbook
+2. Collection 2 Algorithm Description
+3. Surface Reflectance Code (LaSRC)
