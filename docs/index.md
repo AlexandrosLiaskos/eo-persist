@@ -25,14 +25,12 @@
 │   └── 🛰️ RADARSAT
 ├── 📂 Technical Guides
 │   ├── 🗺️ ArcGIS Pro Basics
-│   └── 🌍 Earth Engine Guide
+│   ├── 🔧 ArcGIS Pro Tools
+│   └── 🛰️ Copernicus Browser
 ├── 📂 Vulnerability Indices
-│   ├── 🌡️ Climate Vulnerability Index
+│   ├── 🌊 Coastal Vulnerability Index
 │   └── 👥 Socioeconomic Vulnerability Index
-└── 📂 Scientific Papers
-    ├── 🧊 Arctic Studies
-    ├── ❄️ Climate Analysis
-    └── 💻 EO-PERSIST System
+└── 📚 Scientific Papers
 ```
 
 ## Quick Links
