@@ -13,10 +13,11 @@ permissions:
   contents: write
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       
@@ -32,12 +33,17 @@ jobs:
           pip install mkdocs-git-revision-date-localized-plugin
           pip install mkdocs-minify-plugin
       
-      - name: Configure Git
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+      - name: Build Documentation
+        run: mkdocs build
       
-      - name: Deploy Documentation
+      - name: Setup Git
         run: |
-          git fetch origin gh-pages || true
-          mkdocs gh-deploy --force
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          force_orphan: true
