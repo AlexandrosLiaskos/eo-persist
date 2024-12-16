@@ -68,9 +68,7 @@ nav:
   - 🛠️ Technical Guides:
       - Overview: technical-guides/index.md
       - 🗺️ ArcGIS Pro Basics: technical-guides/arcgis-pro-guide.md
-      - 🌍 Earth Engine Guide: technical-guides/earth-engine-guide.md
   - 🌊 Vulnerability Indices:
       - Overview: vulnerability-indices/index.md
-      - 🌡️ Climate Vulnerability Index: vulnerability-indices/climate-vulnerability-index.md
       - 👥 Socioeconomic Vulnerability Index: vulnerability-indices/socioeconomic-vulnerability-index.md
   - 📚 Scientific Papers: scientific-papers/index.md
