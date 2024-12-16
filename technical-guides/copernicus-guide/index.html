@@ -6,15 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Complete guide to accessing and downloading Copernicus satellite data">
       
       
-        <link rel="canonical" href="https://alexandrosliaskos.github.io/eo-persist/data-sources/sentinel-1/">
+      
+        <link rel="canonical" href="https://alexandrosliaskos.github.io/eo-persist/technical-guides/copernicus-guide/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../arcgis-pro-tools/">
       
       
-        <link rel="next" href="../sentinel-2/">
+        <link rel="next" href="../../vulnerability-indices/">
       
       
       <link rel="icon" href="../../assets/favicon.png">
@@ -22,7 +24,7 @@
     
     
       
-        <title>🛰️ Sentinel-1 - EO Persist Documentation</title>
+        <title>Copernicus Browser Guide - EO Persist Documentation</title>
       
     
     
@@ -82,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sentinel-1" class="md-skip">
+        <a href="#copernicus-browser-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              🛰️ Sentinel-1
+              Copernicus Browser Guide
             
           </span>
         </div>
@@ -245,13 +247,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../data-sources/" class="md-tabs__link">
           
   
     
@@ -267,11 +267,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../technical-guides/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
     
@@ -527,8 +529,6 @@
       
   
   
-    
-  
   
   
     
@@ -551,24 +551,23 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../data-sources/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -579,13 +578,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             🛰️ Data Sources
@@ -598,30 +597,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    🛰️ Sentinel-1
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../data-sources/sentinel-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -630,317 +609,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#mission-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mission Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#technical-specifications" class="md-nav__link">
-    <span class="md-ellipsis">
-      Technical Specifications
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Technical Specifications">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sar-instrument" class="md-nav__link">
-    <span class="md-ellipsis">
-      SAR Instrument
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#acquisition-modes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Acquisition Modes
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Acquisition Modes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-interferometric-wide-swath-iw" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Interferometric Wide Swath (IW)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-strip-map-sm" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Strip Map (SM)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-extra-wide-swath-ew" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Extra Wide Swath (EW)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-wave-mode-wv" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Wave Mode (WV)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-products" class="md-nav__link">
-    <span class="md-ellipsis">
-      Data Products
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Data Products">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#processing-levels" class="md-nav__link">
-    <span class="md-ellipsis">
-      Processing Levels
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#polarization-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      Polarization Options
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#applications" class="md-nav__link">
-    <span class="md-ellipsis">
-      Applications
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Applications">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-permafrost-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Permafrost Monitoring
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-maritime-surveillance" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Maritime Surveillance
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-emergency-response" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Emergency Response
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-access-and-processing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Data Access and Processing
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Data Access and Processing">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#data-sources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Data Sources
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#processing-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      Processing Tools
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#processing-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Processing Workflow
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Processing Workflow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-pre-processing" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Pre-processing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-analysis-methods" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Analysis Methods
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      Best Practices
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#data-selection" class="md-nav__link">
-    <span class="md-ellipsis">
-      Data Selection
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#processing-tips" class="md-nav__link">
-    <span class="md-ellipsis">
-      Processing Tips
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Resources">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentation
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scientific-references" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scientific References
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -953,7 +621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sentinel-2/" class="md-nav__link">
+      <a href="../../data-sources/sentinel-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -974,7 +642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../landsat/" class="md-nav__link">
+      <a href="../../data-sources/landsat/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -995,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modis/" class="md-nav__link">
+      <a href="../../data-sources/modis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1016,7 +684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../radarsat/" class="md-nav__link">
+      <a href="../../data-sources/radarsat/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1041,6 +709,8 @@
       
   
   
+    
+  
   
   
     
@@ -1059,23 +729,24 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../technical-guides/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1086,13 +757,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             🛠️ Technical Guides
@@ -1108,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../technical-guides/arcgis-pro-guide/" class="md-nav__link">
+      <a href="../arcgis-pro-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1129,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../technical-guides/arcgis-pro-tools/" class="md-nav__link">
+      <a href="../arcgis-pro-tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1147,10 +818,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../technical-guides/copernicus-guide/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    🛰️ Copernicus Browser
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1159,6 +850,281 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Links
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#browser-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Browser Interface 🖥️
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Browser Interface 🖥️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#map-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Map View
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search Panel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Access 🔍
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Access 🔍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#search-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product Types
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download Options 📥
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Download Options 📥">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct-download" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct Download
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Access
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Features ⚙️
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Features ⚙️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Processing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices 📋
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices 📋">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#search-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search Optimization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting 🔧
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting 🔧">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#account-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Account Management 👤
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Account Management 👤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Profile
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Resources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1329,112 +1295,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mission-overview" class="md-nav__link">
+  <a href="#quick-links" class="md-nav__link">
     <span class="md-ellipsis">
-      Mission Overview
+      Quick Links
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#technical-specifications" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Technical Specifications
+      Overview
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Technical Specifications">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sar-instrument" class="md-nav__link">
-    <span class="md-ellipsis">
-      SAR Instrument
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#acquisition-modes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Acquisition Modes
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Acquisition Modes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-interferometric-wide-swath-iw" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Interferometric Wide Swath (IW)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-strip-map-sm" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Strip Map (SM)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-extra-wide-swath-ew" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Extra Wide Swath (EW)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-wave-mode-wv" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Wave Mode (WV)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-products" class="md-nav__link">
+  <a href="#browser-interface" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Products
+      Browser Interface 🖥️
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Data Products">
+    <nav class="md-nav" aria-label="Browser Interface 🖥️">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#processing-levels" class="md-nav__link">
+  <a href="#map-view" class="md-nav__link">
     <span class="md-ellipsis">
-      Processing Levels
+      Map View
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#polarization-options" class="md-nav__link">
+  <a href="#search-panel" class="md-nav__link">
     <span class="md-ellipsis">
-      Polarization Options
+      Search Panel
     </span>
   </a>
   
@@ -1446,37 +1346,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#applications" class="md-nav__link">
+  <a href="#data-access" class="md-nav__link">
     <span class="md-ellipsis">
-      Applications
+      Data Access 🔍
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Applications">
+    <nav class="md-nav" aria-label="Data Access 🔍">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-permafrost-monitoring" class="md-nav__link">
+  <a href="#search-methods" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Permafrost Monitoring
+      Search Methods
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-maritime-surveillance" class="md-nav__link">
+  <a href="#product-types" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Maritime Surveillance
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-emergency-response" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Emergency Response
+      Product Types
     </span>
   </a>
   
@@ -1488,28 +1379,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-access-and-processing" class="md-nav__link">
+  <a href="#download-options" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Access and Processing
+      Download Options 📥
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Data Access and Processing">
+    <nav class="md-nav" aria-label="Download Options 📥">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#data-sources" class="md-nav__link">
+  <a href="#direct-download" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Sources
+      Direct Download
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#processing-tools" class="md-nav__link">
+  <a href="#api-access" class="md-nav__link">
     <span class="md-ellipsis">
-      Processing Tools
+      API Access
     </span>
   </a>
   
@@ -1521,28 +1412,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#processing-workflow" class="md-nav__link">
+  <a href="#advanced-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Processing Workflow
+      Advanced Features ⚙️
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Processing Workflow">
+    <nav class="md-nav" aria-label="Advanced Features ⚙️">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-pre-processing" class="md-nav__link">
+  <a href="#data-processing" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Pre-processing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-analysis-methods" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Analysis Methods
+      Data Processing
     </span>
   </a>
   
@@ -1556,26 +1438,26 @@
         <li class="md-nav__item">
   <a href="#best-practices" class="md-nav__link">
     <span class="md-ellipsis">
-      Best Practices
+      Best Practices 📋
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Best Practices">
+    <nav class="md-nav" aria-label="Best Practices 📋">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#data-selection" class="md-nav__link">
+  <a href="#search-optimization" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Selection
+      Search Optimization
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#processing-tips" class="md-nav__link">
+  <a href="#download-management" class="md-nav__link">
     <span class="md-ellipsis">
-      Processing Tips
+      Download Management
     </span>
   </a>
   
@@ -1587,13 +1469,61 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
-      Resources
+      Troubleshooting 🔧
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Resources">
+    <nav class="md-nav" aria-label="Troubleshooting 🔧">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#account-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Account Management 👤
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Account Management 👤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Profile
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Resources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Resources">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1606,9 +1536,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scientific-references" class="md-nav__link">
+  <a href="#support" class="md-nav__link">
     <span class="md-ellipsis">
-      Scientific References
+      Support
     </span>
   </a>
   
@@ -1637,304 +1567,177 @@
   
 
 
-<h1 id="sentinel-1">🛰️ Sentinel-1</h1>
-<h2 id="mission-overview">Mission Overview</h2>
-<p>Sentinel-1 is a radar imaging mission of the European Union's Copernicus Programme, consisting of two identical satellites:</p>
-<table>
-<thead>
-<tr>
-<th>Satellite</th>
-<th>Launch Date</th>
-<th>Status</th>
-<th>Orbit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Sentinel-1A</td>
-<td>April 3, 2014</td>
-<td>Active</td>
-<td>Sun-synchronous</td>
-</tr>
-<tr>
-<td>Sentinel-1B</td>
-<td>April 25, 2016</td>
-<td>Decommissioned (2022)</td>
-<td>Sun-synchronous</td>
-</tr>
-</tbody>
-</table>
-<p>Key features:
-- 🌍 Global coverage every 6 days
-- 🌙 Day and night operation
-- ☔ All-weather imaging
-- 📡 C-band SAR technology</p>
-<h2 id="technical-specifications">Technical Specifications</h2>
-<h3 id="sar-instrument">SAR Instrument</h3>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Specification</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Frequency Band</td>
-<td>C-band (5.405 GHz)</td>
-</tr>
-<tr>
-<td>Wavelength</td>
-<td>5.6 cm</td>
-</tr>
-<tr>
-<td>Polarization</td>
-<td>VV+VH, HH+HV</td>
-</tr>
-<tr>
-<td>Incidence Angle</td>
-<td>20° - 45°</td>
-</tr>
-<tr>
-<td>Orbit Height</td>
-<td>693 km</td>
-</tr>
-</tbody>
-</table>
-<h3 id="acquisition-modes">Acquisition Modes</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Swath Width Comparison:
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>SM:   80km  |-------|
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>IW:   250km |------------------------|
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>EW:   400km |----------------------------------|
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>WV:   20km  |-|  (sampled every 100km)
-</code></pre></div>
-<h4 id="1-interferometric-wide-swath-iw">1. Interferometric Wide Swath (IW)</h4>
-<ul>
-<li><strong>Primary mode over land</strong></li>
-<li>Resolution: 5 x 20 m</li>
-<li>Swath width: 250 km</li>
-<li>TOPS imaging technique</li>
-<li>Three sub-swaths</li>
-</ul>
-<h4 id="2-strip-map-sm">2. Strip Map (SM)</h4>
-<ul>
-<li>Resolution: 5 x 5 m</li>
-<li>Swath width: 80 km</li>
-<li>Continuous imaging</li>
-<li>Single look complex</li>
-</ul>
-<h4 id="3-extra-wide-swath-ew">3. Extra Wide Swath (EW)</h4>
-<ul>
-<li>Resolution: 20 x 40 m</li>
-<li>Swath width: 400 km</li>
-<li>Maritime monitoring</li>
-<li>Five sub-swaths</li>
-</ul>
-<h4 id="4-wave-mode-wv">4. Wave Mode (WV)</h4>
-<ul>
-<li>Resolution: 5 x 20 m</li>
-<li>Vignette size: 20 x 20 km</li>
-<li>Ocean applications</li>
-<li>Alternating incidence angles</li>
-</ul>
-<h2 id="data-products">Data Products</h2>
-<h3 id="processing-levels">Processing Levels</h3>
-<table>
-<thead>
-<tr>
-<th>Level</th>
-<th>Product</th>
-<th>Description</th>
-<th>Applications</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Level-0</td>
-<td>Raw</td>
-<td>Raw SAR data</td>
-<td>Advanced processing</td>
-</tr>
-<tr>
-<td>Level-1 SLC</td>
-<td>Single Look Complex</td>
-<td>Complex samples, phase preserved</td>
-<td>InSAR, polarimetry</td>
-</tr>
-<tr>
-<td>Level-1 GRD</td>
-<td>Ground Range Detected</td>
-<td>Multi-looked, projected</td>
-<td>Most applications</td>
-</tr>
-<tr>
-<td>Level-2 OCN</td>
-<td>Ocean</td>
-<td>Wind, wave height, currents</td>
-<td>Maritime monitoring</td>
-</tr>
-</tbody>
-</table>
-<h3 id="polarization-options">Polarization Options</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>VV: Vertical transmit - Vertical receive
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>VH: Vertical transmit - Horizontal receive
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>HH: Horizontal transmit - Horizontal receive
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>HV: Horizontal transmit - Vertical receive
-</code></pre></div>
-<h2 id="applications">Applications</h2>
-<h3 id="1-permafrost-monitoring">1. Permafrost Monitoring</h3>
-<ul>
-<li>📊 <strong>Surface Deformation</strong><ul>
-<li>InSAR time series analysis</li>
-<li>Seasonal movement tracking</li>
-<li>Subsidence mapping</li>
-</ul>
-</li>
-<li>🏗️ <strong>Infrastructure Stability</strong><ul>
-<li>Pipeline monitoring</li>
-<li>Building deformation</li>
-<li>Road network assessment</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-maritime-surveillance">2. Maritime Surveillance</h3>
-<ul>
-<li>🚢 <strong>Vessel Detection</strong><ul>
-<li>Ship position tracking</li>
-<li>Traffic monitoring</li>
-<li>Security applications</li>
-</ul>
-</li>
-<li>🌊 <strong>Ocean Monitoring</strong><ul>
-<li>Wave height estimation</li>
-<li>Wind field mapping</li>
-<li>Oil spill detection</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-emergency-response">3. Emergency Response</h3>
-<ul>
-<li>🌊 <strong>Flood Mapping</strong><ul>
-<li>Rapid damage assessment</li>
-<li>Extent mapping</li>
-<li>Time series monitoring</li>
-</ul>
-</li>
-<li>🌋 <strong>Natural Disasters</strong><ul>
-<li>Earthquake damage</li>
-<li>Volcanic activity</li>
-<li>Landslide detection</li>
-</ul>
-</li>
-</ul>
-<h2 id="data-access-and-processing">Data Access and Processing</h2>
-<h3 id="data-sources">Data Sources</h3>
-<ol>
-<li>
-<p><strong>Official Platforms</strong></p>
+<h1 id="copernicus-browser-guide">🛰️ Copernicus Browser Guide</h1>
+<p>A comprehensive guide for accessing and downloading Earth observation data through the Copernicus Open Access Hub.</p>
+<h2 id="quick-links">Quick Links</h2>
 <ul>
 <li><a href="https://scihub.copernicus.eu/">Copernicus Open Access Hub</a></li>
-<li><a href="https://asf.alaska.edu/">Alaska Satellite Facility</a></li>
-<li><a href="https://www.sentinel-hub.com/">Sentinel Hub</a></li>
+<li><a href="https://scihub.copernicus.eu/userguide/">User Manual</a></li>
+<li><a href="https://scihub.copernicus.eu/twiki/do/view/SciHubWebPortal/APIHubDescription">API Documentation</a></li>
 </ul>
+<h2 id="overview">Overview</h2>
+<p>The Copernicus Open Access Hub provides free access to Sentinel satellite data. This guide covers the essential features of the browser interface and best practices for data access.</p>
+<h2 id="browser-interface">Browser Interface 🖥️</h2>
+<h3 id="map-view">Map View</h3>
+<ul>
+<li><strong>Interactive Map</strong></li>
+<li>Pan and zoom navigation</li>
+<li>Area selection tools</li>
+<li>Footprint visualization</li>
+<li><strong>Layer Controls</strong></li>
+<li>Base map selection</li>
+<li>Overlay options</li>
+<li>Transparency settings</li>
+</ul>
+<h3 id="search-panel">Search Panel</h3>
+<ul>
+<li><strong>Basic Search</strong></li>
+<li>Date range selection</li>
+<li>Product type filters</li>
+<li>Area of interest</li>
+<li><strong>Advanced Filters</strong></li>
+<li>Cloud coverage</li>
+<li>Orbit direction</li>
+<li>Polarization modes</li>
+</ul>
+<h2 id="data-access">Data Access 🔍</h2>
+<h3 id="search-methods">Search Methods</h3>
+<ul>
+<li><strong>Area Selection</strong></li>
+<li>Draw polygon</li>
+<li>Upload shapefile</li>
+<li>Coordinate input</li>
+<li>
+<p>Point and radius</p>
 </li>
 <li>
-<p><strong>Cloud Platforms</strong></p>
-<ul>
-<li><a href="https://earthengine.google.com/">Google Earth Engine</a></li>
-<li><a href="https://registry.opendata.aws/">AWS Registry of Open Data</a></li>
-<li><a href="https://planetarycomputer.microsoft.com/">Microsoft Planetary Computer</a></li>
-</ul>
+<p><strong>Time Range</strong></p>
 </li>
-</ol>
-<h3 id="processing-tools">Processing Tools</h3>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Type</th>
-<th>Features</th>
-<th>Best For</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SNAP</td>
-<td>Desktop</td>
-<td>Complete processing suite</td>
-<td>General processing</td>
-</tr>
-<tr>
-<td>GAMMA</td>
-<td>Commercial</td>
-<td>Advanced InSAR</td>
-<td>Professional InSAR</td>
-</tr>
-<tr>
-<td>ISCE</td>
-<td>Open-source</td>
-<td>Scientific processing</td>
-<td>Research</td>
-</tr>
-<tr>
-<td>GEE</td>
-<td>Cloud</td>
-<td>Large-scale processing</td>
-<td>Big data analysis</td>
-</tr>
-</tbody>
-</table>
-<h2 id="processing-workflow">Processing Workflow</h2>
-<h3 id="1-pre-processing">1. Pre-processing</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>graph LR
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    A[Raw Data] --&gt; B[Apply Orbit File]
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    B --&gt; C[Radiometric Calibration]
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    C --&gt; D[Speckle Filtering]
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    D --&gt; E[Terrain Correction]
-</code></pre></div>
-<h3 id="2-analysis-methods">2. Analysis Methods</h3>
-<ul>
-<li>📊 <strong>Change Detection</strong><ul>
-<li>Amplitude-based</li>
-<li>Coherence-based</li>
-<li>Time series analysis</li>
+<li>Calendar selection</li>
+<li>Relative dates</li>
+<li>Seasonal periods</li>
 </ul>
+<h3 id="product-types">Product Types</h3>
+<ul>
+<li><strong>Sentinel-1</strong></li>
+<li>SAR imagery</li>
+<li>Different modes (IW, EW, SM)</li>
+<li>
+<p>Processing levels</p>
 </li>
-<li>🗺️ <strong>InSAR Processing</strong><ul>
-<li>Differential InSAR</li>
-<li>Persistent Scatterers</li>
-<li>SBAS technique</li>
-</ul>
+<li>
+<p><strong>Sentinel-2</strong></p>
 </li>
+<li>Optical imagery</li>
+<li>MSI instrument</li>
+<li>L1C and L2A products</li>
 </ul>
-<h2 id="best-practices">Best Practices</h2>
-<h3 id="data-selection">Data Selection</h3>
+<h2 id="download-options">Download Options 📥</h2>
+<h3 id="direct-download">Direct Download</h3>
 <ul>
-<li>✅ Choose appropriate acquisition mode</li>
-<li>✅ Consider temporal baseline</li>
-<li>✅ Check orbit direction</li>
-<li>✅ Verify polarization</li>
+<li><strong>Single Product</strong></li>
+<li>Preview available</li>
+<li>Metadata access</li>
+<li>
+<p>Quick download</p>
+</li>
+<li>
+<p><strong>Batch Processing</strong></p>
+</li>
+<li>Multiple selection</li>
+<li>Queue management</li>
+<li>Progress tracking</li>
 </ul>
-<h3 id="processing-tips">Processing Tips</h3>
+<h3 id="api-access">API Access</h3>
 <ul>
-<li>🔍 Use precise orbit files</li>
-<li>🌍 Apply terrain correction</li>
-<li>🔧 Optimize speckle filtering</li>
-<li>📏 Validate results</li>
+<li><strong>Authentication</strong></li>
+<li>API key generation</li>
+<li>Token management</li>
+<li>
+<p>Usage quotas</p>
+</li>
+<li>
+<p><strong>Scripted Downloads</strong></p>
+</li>
+<li>Python scripts</li>
+<li>Command line tools</li>
+<li>Batch processing</li>
 </ul>
-<h2 id="resources">Resources</h2>
+<h2 id="advanced-features">Advanced Features ⚙️</h2>
+<h3 id="data-processing">Data Processing</h3>
+<ul>
+<li><strong>On-demand Processing</strong></li>
+<li>Subset selection</li>
+<li>Band extraction</li>
+<li>
+<p>Format conversion</p>
+</li>
+<li>
+<p><strong>Cloud Processing</strong></p>
+</li>
+<li>DIAS platforms</li>
+<li>Virtual machines</li>
+<li>Processing services</li>
+</ul>
+<h2 id="best-practices">Best Practices 📋</h2>
+<h3 id="search-optimization">Search Optimization</h3>
+<ul>
+<li>Define precise area</li>
+<li>Use relevant filters</li>
+<li>Check data availability</li>
+<li>Monitor quotas</li>
+</ul>
+<h3 id="download-management">Download Management</h3>
+<ul>
+<li>Plan large downloads</li>
+<li>Use appropriate tools</li>
+<li>Monitor storage space</li>
+<li>Handle interruptions</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting 🔧</h2>
+<h3 id="common-issues">Common Issues</h3>
+<ul>
+<li><strong>Connection Problems</strong></li>
+<li>Check network status</li>
+<li>Verify credentials</li>
+<li>
+<p>Browser compatibility</p>
+</li>
+<li>
+<p><strong>Download Failures</strong></p>
+</li>
+<li>Retry mechanism</li>
+<li>Alternative nodes</li>
+<li>Queue management</li>
+</ul>
+<h2 id="account-management">Account Management 👤</h2>
+<h3 id="user-profile">User Profile</h3>
+<ul>
+<li><strong>Settings</strong></li>
+<li>Profile management</li>
+<li>API key generation</li>
+<li>
+<p>Usage statistics</p>
+</li>
+<li>
+<p><strong>Notifications</strong></p>
+</li>
+<li>Download alerts</li>
+<li>System updates</li>
+<li>Maintenance info</li>
+</ul>
+<h2 id="additional-resources">Additional Resources</h2>
 <h3 id="documentation">Documentation</h3>
 <ul>
-<li><a href="https://sentinel.esa.int/web/sentinel/missions/sentinel-1">ESA Sentinel Online</a></li>
-<li><a href="https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-1-sar">Copernicus User Guide</a></li>
-<li><a href="https://step.esa.int/main/doc/tutorials/">SNAP Tutorials</a></li>
+<li><a href="https://scihub.copernicus.eu/userguide/DataAccess">Data Access Guide</a></li>
+<li><a href="https://scihub.copernicus.eu/userguide/ProductTypes">Product Types</a></li>
+<li><a href="https://scihub.copernicus.eu/twiki/do/view/SciHubUserGuide/FAQ">FAQ</a></li>
 </ul>
-<h3 id="scientific-references">Scientific References</h3>
-<ol>
-<li>ESA Sentinel-1 Handbook</li>
-<li>SAR Principles and Applications</li>
-<li>InSAR Processing Guidelines</li>
-</ol>
+<h3 id="support">Support</h3>
+<ul>
+<li><a href="https://scihub.copernicus.eu/userguide/SupportContact">Help Desk</a></li>
+<li><a href="https://forum.copernicus.eu/">User Forum</a></li>
+</ul>
 
 
 
