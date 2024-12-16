@@ -32,5 +32,12 @@ jobs:
           pip install mkdocs-git-revision-date-localized-plugin
           pip install mkdocs-minify-plugin
       
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+      
       - name: Deploy Documentation
-        run: mkdocs gh-deploy --force
+        run: |
+          git fetch origin gh-pages || true
+          mkdocs gh-deploy --force

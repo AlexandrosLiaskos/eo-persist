@@ -55,22 +55,22 @@ nav:
   - 🏠 Home: index.md
   - ℹ️ About: about.md
   - 🔍 Fundamentals:
+      - Overview: fundamentals/index.md
       - 🛰️ Remote Sensing: fundamentals/remote-sensing.md
       - 🌡️ Permafrost Science: fundamentals/permafrost-science.md
   - 🛰️ Data Sources:
+      - Overview: data-sources/index.md
       - 🛰️ Sentinel-1: data-sources/sentinel-1.md
       - 🛰️ Sentinel-2: data-sources/sentinel-2.md
       - 🛰️ Landsat: data-sources/landsat.md
       - 🛰️ MODIS: data-sources/modis.md
       - 🛰️ RADARSAT: data-sources/radarsat.md
-      - 🛰️ Commercial Satellites: data-sources/commercial-satellites.md
-      - ✈️ Aerial Photography: data-sources/aerial-photography.md
   - 🛠️ Technical Guides:
+      - Overview: technical-guides/index.md
       - 🗺️ ArcGIS Pro Basics: technical-guides/arcgis-pro-guide.md
-      - 🔧 ArcGIS Pro Tools: technical-guides/arcgis-pro-tools-guide.md
-      - 🌊 ArcGIS Pro Vulnerability Analysis: technical-guides/arcgis-vulnerability-analysis.md
-      - 🛰️ Copernicus Browser Guide: technical-guides/copernicus-browser-guide.md
+      - 🌍 Earth Engine Guide: technical-guides/earth-engine-guide.md
   - 🌊 Vulnerability Indices:
-      - 🌊 Coastal Vulnerability Index: vulnerability-indices/coastal-vulnerability-index.md
+      - Overview: vulnerability-indices/index.md
+      - 🌡️ Climate Vulnerability Index: vulnerability-indices/climate-vulnerability-index.md
       - 👥 Socioeconomic Vulnerability Index: vulnerability-indices/socioeconomic-vulnerability-index.md
   - 📚 Scientific Papers: scientific-papers/index.md
